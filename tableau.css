@@ -1,0 +1,61 @@
+.item {
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  user-select: none;
+}
+
+.drag_dropzpone {
+  height: 100px;
+}
+
+.drop-target {
+  background-color: #29e;
+  border-color: #fff;
+  border-style: solid;
+}
+
+@media screen and (max-width: 800px) {
+  .drop-target {
+    width: 99%;
+  }
+}
+
+.drag-drop {
+  touch-action: none;
+  display: inline-block;
+  min-width: 40px;
+  padding: 2em 0.5em;
+  margin: 0.3rem 0 0 0.3rem;
+  /* background-color: #060; */
+  color: #e91e63;
+  padding: 12px 20px;
+  border: 1px solid #e91e63;
+  border-radius: 4px;
+  cursor: pointer;
+  float: inherit;
+}
+
+.drag-drop.can-drop {
+  background-color: #4e4;
+}
+
+table.timeline {
+  width: 100%;
+}
+
+table.time {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table.time td, table.time th {
+  border: 1px solid black !important;
+  text-align: left;
+  padding: 8px;
+}
+
+td input.hiddenbutton {
+  display: none !important;
+}
