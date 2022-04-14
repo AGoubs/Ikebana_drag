@@ -20,6 +20,7 @@
 
   <script src="./Activites_files/new/material-kit-pro.min.js"></script>
   <script src="./Activites_files/new/bootstrap.min.js"></script>
+  <script src="./Activites_files/new/progressbar.min.js"></script>
   <link rel="stylesheet" href="./Activites_files/new/material-kit-pro.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- Entire bundle -->
@@ -131,7 +132,7 @@
       <div class="row">
         <div class="col-lg-11 mx-auto">
           <div class="row">
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6 col-lg-4 margin-right">
               <div class="input-group input-group-static mb-4" style="display: block;">
                 <form name="myform" method="post" action="http://ikebana.grandlyon.fr/m/m-activites.php">
                   <label for="exampleFormControlSelect1" class="ms-0">Date</label>
@@ -1037,7 +1038,88 @@
                 </div>
               </form>
             </div>
-            <div class="col-md-6 col-lg-8 ml-4">
+            <div class="col-md-6 col-lg-7 ml-4">
+              <h2>Heures déjà saisies</h2>
+              <div class="row mb-4">
+                <div class="col-12">
+                  <table class="timeline">
+                    <tbody>
+                      <tr>
+                        <td align="center" valign="top"><a
+                            href="http://ikebana.grandlyon.fr/m/m-activites.php?a=2022-03-03">J03<br>9</a>
+                        </td>
+                        <td align="center" valign="top"><a
+                            href="http://ikebana.grandlyon.fr/m/m-activites.php?a=2022-03-04">V04<br>9</a>
+                        </td>
+                        <td align="center" valign="top"><a
+                            href="http://ikebana.grandlyon.fr/m/m-activites.php?a=2022-03-05">S05<br></a>
+                        </td>
+                        <td align="center" valign="top"><a
+                            href="http://ikebana.grandlyon.fr/m/m-activites.php?a=2022-03-06">D06<br></a>
+                        </td>
+                        <td align="center" valign="top"><a
+                            href="http://ikebana.grandlyon.fr/m/m-activites.php?a=2022-03-07">L07<br>8</a>
+                        </td>
+                        <td align="center" valign="top"><a
+                            href="http://ikebana.grandlyon.fr/m/m-activites.php?a=2022-03-08">M08<br>9</a>
+                        </td>
+                        <td align="center" valign="top"><a
+                            href="http://ikebana.grandlyon.fr/m/m-activites.php?a=2022-03-09">M09<br>5</a>
+                        </td>
+                        <td align="center" valign="top"><a
+                            href="http://ikebana.grandlyon.fr/m/m-activites.php?a=2022-03-10">J10<br></a>
+                        </td>
+                        <td align="center" valign="top"><a
+                            href="http://ikebana.grandlyon.fr/m/m-activites.php?a=2022-03-11">V11<br></a>
+                        </td>
+                        <td align="center" valign="top"><a
+                            href="http://ikebana.grandlyon.fr/m/m-activites.php?a=2022-03-12">S12<br></a>
+                        </td>
+                        <td align="center" valign="top"><a
+                            href="http://ikebana.grandlyon.fr/m/m-activites.php?a=2022-03-13">D13<br></a>
+                        </td>
+                        <td align="center" valign="top"><a
+                            href="http://ikebana.grandlyon.fr/m/m-activites.php?a=2022-03-14">L14<br></a>
+                        </td>
+                        <td align="center" valign="top"><a
+                            href="http://ikebana.grandlyon.fr/m/m-activites.php?a=2022-03-15">M15<br></a>
+                        </td>
+                        <td align="center" valign="top"><a
+                            href="http://ikebana.grandlyon.fr/m/m-activites.php?a=2022-03-16">M16<br></a>
+                        </td>
+                        <td align="center" valign="top" style="background-color:#CCC;"><a
+                            href="http://ikebana.grandlyon.fr/m/m-activites.php?a=2022-03-17">J17<br>5</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="row mb-5">
+                <div class="col-1">
+                  <button class="btn btn-primary btn-sm btn-round" onclick="removetime()">
+                    -
+                  </button>
+                </div>
+                <div class="col-10">
+
+                  <div class="progress-wrapper">
+                    <div class="progress-info">
+                      <div class="progress-percentage">
+                        <span class="text-sm font-weight-bold" id="time_counter">0</span>
+                        <span class="text-sm font-weight-bold">/</span>
+                        <span class="text-sm font-weight-bold" id="max_time">10</span>
+                      </div>
+                    </div>
+                    <div class="progress">
+                      <div id="progress-bar" class="progress-bar bg-primary" role="progressbar" aria-valuenow="60"
+                        aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-1">
+                  <button class="btn btn-primary btn-sm btn-round" onclick="addtime()">+</button>
+                </div>
+              </div>
               <div class="row">
                 <div class="col-2">
                   <div class="drag_container">
@@ -1057,7 +1139,7 @@
                     </ul>
                   </div>
                 </div>
-                <div class="col-9">
+                <div class="col-10">
                   <div class="drag_container">
                     <div class="card">
                       <div class="table-responsive">
@@ -1100,6 +1182,7 @@
                   </div>
                 </div>
               </div>
+              <div id="stats"></div>
             </div>
           </div>
         </div>
@@ -1112,6 +1195,16 @@
 </html>
 
 <script>
+  let max_time = 8;
+  let time = 0;
+
+  let progress = document.getElementById('progress-bar');
+  let time_counter = document.getElementById('time_counter');
+  let max_time_counter = document.getElementById('max_time');
+
+  max_time_counter.textContent = max_time;
+
+
   const droppable = new Draggable.Droppable(document.querySelectorAll('.drag_container'), {
     draggable: '.item',
     dropzone: '.drag_dropzone'
@@ -1120,47 +1213,59 @@
   droppable.on('droppable:stop', (evt) => {
     var table = document.getElementById("timetable");
     let dragged_row_cells = evt.dropzone.parentNode.cells
-    console.log(dragged_row_cells);
     for (let i = 0; i < dragged_row_cells.length; i++) {
       const element = dragged_row_cells[i];
-      console.log(element.className);
       if (!element.className.includes("draggable-dropzone--occupied")) {
 
-        element.setAttribute('style', "background:linear-gradient(45deg, #000 1%, #fff 1%, #fff 49%, #000 49%, #000 51%, #fff 51%, #fff 99%, #000 99%);background-size: 5px 5px")
+        element.classList.add("unavailable-zone");
+        element.classList.remove("drag_dropzone");
       }
     }
 
 
     var row = table.insertRow(table.length);
+    row.classList.add('new_row')
     for (let i = 0; i < 8; i++) {
       var cell1 = row.insertCell(i);
       cell1.className = "drag_dropzone"
+      cell1.id = i + 1;
     }
 
     if (!document.getElementById("input-" + evt.dragEvent.data.originalSource.id)) {
+      var stats = document.getElementById('stats');
       var x = document.createElement("INPUT");
       x.setAttribute("type", "text");
       x.setAttribute("id", "input-" + evt.dragEvent.data.originalSource.id);
       x.setAttribute("value", evt.dropzone.id)
-      document.body.appendChild(x);
+      stats.appendChild(x);
+
+      increaseBar(evt.dropzone.id);
     }
   });
-</script>
-<script>
-  // const sortable = new Draggable.Sortable(document.querySelectorAll('table'), {
-  //   draggable: 'td'
-  // });
-  // sortable.on('sortable:sorted', (evt) => {
-  //   let table = document.getElementById(evt.dragEvent.data.originalSource.id);
-  //   // for (let i = 1; i < 9; i++) {
-  //   //   table.children[i].children[0].classList.remove('hiddenbutton')
-  //   // }
 
-  //   if (!document.getElementById("input-" + evt.dragEvent.data.originalSource.id)) {
-  //     var x = document.createElement("INPUT");
-  //     x.setAttribute("type", "text");
-  //     x.setAttribute("id", "input-" + evt.dragEvent.data.originalSource.id);
-  //     document.body.appendChild(x);
-  //   }
-  // });
+  function addtime() {
+    max_time++;
+    max_time_counter.textContent = max_time;
+
+    increaseBar(0)
+  }
+
+  function removetime() {
+    max_time--;
+    max_time_counter.textContent = max_time;
+
+    increaseBar(0)
+  }
+
+  function increaseBar(hour) {
+    time += parseInt(hour);
+    time_counter.textContent = time;
+    progress.style.width = (time * 100 / max_time) + '%';
+  }
+
+  function decreaseBar(time) {
+    time -= parseInt(hour);
+    time_counter.textContent = time;
+    progress.style.width = (time * 100 / max_time) + '%';
+  }
 </script>

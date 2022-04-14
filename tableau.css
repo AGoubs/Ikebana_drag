@@ -3,10 +3,31 @@
   border: 1px solid black;
   border-radius: 5px;
   user-select: none;
+  max-width: 200px;
 }
 
+table.time tbody {
+  vertical-align: top;
+}
+table.time td {
+  width: 200px;
+  height: 300px;
+}
 .drag_dropzpone {
   height: 100px;
+  width: 200px;
+}
+
+.draggable-dropzone--occupied {
+  /* width: 200px !important; */
+}
+
+.new_row {
+  height: 60px;
+}
+
+.margin-right {
+  margin-right: 50px;
 }
 
 .drop-target {
@@ -52,10 +73,38 @@ table.time {
 
 table.time td, table.time th {
   border: 1px solid black !important;
-  text-align: left;
+  /* text-align: left; */
   padding: 8px;
 }
 
 td input.hiddenbutton {
   display: none !important;
 }
+
+.unavailable-zone {
+  background: linear-gradient(45deg, #000 1%, #fff 1%, #fff 49%, #000 49%, #000 51%, #fff 51%, #fff 99%, #000 99%);
+  background-size: 5px 5px;
+}
+
+.task_list {
+  list-style: none;
+}
+
+.progress {
+  width: 100%;
+  /* max-width: 260px; */
+  height: 6px;
+  background: #e1e4e8;
+  border-radius: 3px;
+  overflow: hidden
+}
+
+.progress-bar {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, rgb(85, 146, 85), rgb(60, 155, 60) 17%, rgb(48, 146, 48) 34%, rgb(33, 141, 33) 51%, #060 68%, rgb(16, 129, 16) 85%, #060);
+  background-size: 300% 100%;
+  animation: progress-animation 2s linear infinite
+}
+
+/* @keyframes progress-animation 0% background-position: 100% 100% background-position: 0 */
