@@ -18,12 +18,12 @@ document.addEventListener("DOMContentLoaded", function () {
     //Si un td contient une activité
     if (document.getElementById(element.id).innerHTML != "") {
       for (let y = 0; y < document.getElementById(element.id).children.length; y++) {
-        const input_id = document.getElementById(element.id).children[y].children[0].id;
+        const input_id = document.getElementById(element.id).children[y].id;
 
         //On créer les inputs pour les activités déjà existante
         var stats = document.getElementById('stats');
         var x = document.createElement("INPUT");
-        x.setAttribute("type", "text");
+        x.setAttribute("type", "hidden");
         x.setAttribute("id", "input-" + input_id);
         x.setAttribute("value", element.id)
         stats.appendChild(x);
@@ -57,7 +57,7 @@ droppable.on('droppable:stop', (evt) => {
 
       var stats = document.getElementById('stats');
       var x = document.createElement("INPUT");
-      x.setAttribute("type", "text");
+      x.setAttribute("type", "hidden");
       x.setAttribute("id", "input-" + evt.dragEvent.data.originalSource.id);
       x.setAttribute("value", evt.dropzone.id)
       stats.appendChild(x);
@@ -111,7 +111,6 @@ function decreaseBar(hour) {
 function deleteExistingActivity(input_id) {
   let li = document.getElementById('task_list').children;
   for (let i = 0; i < li.length; i++) {
-    console.log(li[i].children[0]);
     const element = li[i].children[0];
     if (element && element.id == input_id) {
       element.parentNode.removeChild(element);
