@@ -5,13 +5,38 @@ let progress = document.getElementById('progress-bar');
 let time_counter = document.getElementById('time_counter');
 let max_time_counter = document.getElementById('max_time');
 
-max_time_counter.textContent = max_time;
-
-
 const droppable = new Draggable.Droppable(document.querySelectorAll('.drag_container'), {
   draggable: '.item',
   dropzone: '.drag_dropzone'
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  let table = document.getElementById('timetable');
+  let table_cells = table.rows[1].cells;
+  for (let i = 0; i < table_cells.length; i++) {
+    const element = table_cells[i];
+    //Si un td contient une activité
+    if (document.getElementById(element.id).innerHTML != "") {
+      for (let y = 0; y < document.getElementById(element.id).children.length; y++) {
+        const input_id = document.getElementById(element.id).children[y].children[0].id;
+
+        //On créer les inputs pour les activités déjà existante
+        var stats = document.getElementById('stats');
+        var x = document.createElement("INPUT");
+        x.setAttribute("type", "text");
+        x.setAttribute("id", "input-" + input_id);
+        x.setAttribute("value", element.id)
+        stats.appendChild(x);
+
+        increaseBar(element.id);
+
+        deleteExistingActivity(input_id);
+      }
+
+    }
+  }
+});
+
 
 droppable.on('droppable:stop', (evt) => {
 
@@ -81,4 +106,15 @@ function decreaseBar(hour) {
   time -= parseInt(hour);
   time_counter.textContent = time;
   progress.style.width = (time * 100 / max_time) + '%';
+}
+
+function deleteExistingActivity(input_id) {
+  let li = document.getElementById('task_list').children;
+  for (let i = 0; i < li.length; i++) {
+    console.log(li[i].children[0]);
+    const element = li[i].children[0];
+    if (element && element.id == input_id) {
+      element.parentNode.removeChild(element);
+    }
+  }
 }

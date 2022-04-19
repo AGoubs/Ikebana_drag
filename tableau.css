@@ -86,7 +86,7 @@ td input.hiddenbutton {
   background-size: 5px 5px;
 }
 
-.task_list {
+#task_list_dropzone {
   list-style: none;
 }
 
