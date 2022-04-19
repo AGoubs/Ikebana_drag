@@ -18,8 +18,8 @@ table.time td {
   width: 200px;
 }
 
-.draggable-dropzone--occupied {
-  /* width: 200px !important; */
+.drag_container {
+  overflow-y: scroll; height: 350px;
 }
 
 .new_row {
